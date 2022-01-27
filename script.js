@@ -2,6 +2,8 @@ let usrInput=document.getElementById("chatInput");
 let chatLog=[];
 
 
+
+
 let usrInputTxt=usrInput.value;
 
 let userName = document.getElementById("userSelect");
@@ -47,16 +49,17 @@ sendBtn.addEventListener("click",function(){
  
     let msgStr=JSON.stringify(logMsg);
     console.log(msgStr);
-    logBox.innerHTML+=msgStr+"<br>";
+    //logBox.innerHTML+=msgStr+"<br>";
     
     jsonLogger();
+    msgOutput();
   
 
 });
 
 function updateLogMsg(){
     
-    logMsg.date=new Date();
+    logMsg.date=getTime();
    // console.log(logMsg.date);
     logMsg.user = document.getElementById("userSelect").value;
 
@@ -89,6 +92,15 @@ function jsonLogger(){
     console.log(chatLog);
 }
 
+function msgOutput(){
+    output=document.createElement("div");
+    output.className="msg";
+    output.innerHTML=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
+    logBox.append(output);
+    //logBox.innerHTML+=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
+
+}
+
 function exportJSON(){
     const data=chatLog;
     const fileName="download";
@@ -109,3 +121,18 @@ function exportJSON(){
     hiddenElement.download="data.csv";
     hiddenElement.click();
 } */
+
+function getTime(){
+    var today=new Date();
+    var d=today.getDate();
+    var month=today.getMonth()+1;
+    var year=today.getFullYear();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    
+
+    return d+"/"+month+"/"+year+"/" +" "+ h+":"+m+":"+s;
+}
+
+console.log("time and date: "+ getTime());
