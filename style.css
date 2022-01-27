@@ -1,0 +1,22 @@
+#chatBox{
+    display:flex;
+    flex-direction: column;
+    border:solid;
+    height: 500px;
+    width: 500px;
+}
+
+#chatLog{
+    border:solid;
+    height: 90%;
+    width: 90%;
+}
+
+#chatLog>p{
+    border:solid;
+   
+}
+
+#chatInput{
+    
+}
