@@ -2,14 +2,15 @@
     display:flex;
     flex-direction: column;
     border:solid;
-    height: 500px;
-    width: 500px;
+    height: 80vg;
+    width: 80vw;
 }
 
 #chatLog{
     border:solid;
     height: 100%;
     width: 100%;
+    padding:5%;
 }
 
 #chatLog>p{

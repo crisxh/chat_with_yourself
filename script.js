@@ -4,12 +4,12 @@ let chatLog=[];
 
 let usrInputTxt=usrInput.value;
 
-let userName = document.getElementById("userSelect").value;
+let userName = document.getElementById("userSelect");
 
 class chatMeta {
     constructor(date,user,message){
         this.date=new Date();
-        this.user=userName;
+        this.user=userName.value;
         this.message=usrInput.value;
     } 
 }
@@ -32,18 +32,21 @@ for(let i=0;i<=logMsg.length;i++){
 
 let logBox=document.getElementById("chatLog");
 
-console.log(logMsg);
+console.log("logMsg test: "+JSON.stringify(logMsg));
 
 sendBtn=document.getElementById("send")
 
 //usrInput.addEventListener("click",function(){alert(usrInputTxt)});
 
 sendBtn.addEventListener("click",function(){
-    
+    logBox.innerHTML="";
+
+},{once:true});
+
+sendBtn.addEventListener("click",function(){
+ 
     let msgStr=JSON.stringify(logMsg);
     console.log(msgStr);
-    msg=document.createElement("p");
-    msg.id=""
     logBox.innerHTML+=msgStr+"<br>";
     
     jsonLogger();
@@ -85,3 +88,24 @@ function jsonLogger(){
     chatLog.push(new chatMeta());
     console.log(chatLog);
 }
+
+function exportJSON(){
+    const data=chatLog;
+    const fileName="download";
+    const exportType="csv";
+    window.exportFromJSON({data,download,exportType});
+
+}
+
+/* function createCsv(){
+    var csv= 'Date, User, Message\n';
+    chatLog.forEach(function(row){
+        csv+=row.join(',');
+        csv+="\n"
+    });
+    var hiddenElement=document.createElement("a");
+    hiddenElement.href="data:text/csv;charset=utf-8," +encodeURI(csv);
+    hiddenElement.target="_blank";
+    hiddenElement.download="data.csv";
+    hiddenElement.click();
+} */
