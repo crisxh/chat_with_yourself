@@ -1,5 +1,6 @@
 let usrInput=document.getElementById("chatInput");
 
+
 let usrInputTxt=usrInput.value;
 
 let userName = document.getElementById("userSelect").value;
@@ -26,6 +27,8 @@ sendBtn.addEventListener("click",function(){
     
     let msgStr=JSON.stringify(logMsg);
     console.log(msgStr);
+    msg=document.createElement("p");
+    msg.id=""
     logBox.innerHTML+=msgStr+"<br>";
     
   
@@ -35,11 +38,28 @@ sendBtn.addEventListener("click",function(){
 function updateLogMsg(){
     
     logMsg.date=new Date();
-    console.log(logMsg.date);
+   // console.log(logMsg.date);
+    logMsg.user = document.getElementById("userSelect").value;
 
-     logMsg.user = document.getElementById("userSelect").value;
+    logMsg.message=usrInput.value;
     
-     logMsg.usrInputTxt=usrInput.value; 
+     
+
+     
 };
 
-setInterval(updateLogMsg,1000);
+setInterval(updateLogMsg,100);
+
+/* function updateMsgTxt(){
+    logMsg.message=usrInputTxt; 
+    console.log(logMsg.message);
+    console.log(usrInputTxt)
+    
+}
+
+usrInput.addEventListener("click",updateMsgTxt); */
+
+function usrColor(){
+    let usrColor=document.getElementById(userName.id);
+    console.log(usrColor);
+}
