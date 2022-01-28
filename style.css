@@ -1,17 +1,45 @@
+@keyframes typingDots{
+    0%{
+        color:none;
+    }
+    50%{
+        color:b
+    }
+   
+    
+}
+
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatContainer{
+    display:flex;
+    flex-direction: row;
+    border:solid;
+    width:60vw;
+    height: 80vh;
+    padding:1%;
+}
+
 #chatBox{
     display:flex;
     flex-direction: column;
     border:solid;
-    height: 80vg;
-    width: 80vw;
+    height: 90%;
+    width: 80%;
+    padding:1%;
 }
 
 #chatLog{
     border:solid;
-    height: 80%;
-    width: 80%;
-    padding:5%;
-    border:solid;
+    height: 95%;
+    width: 95%;
+    padding:2%;
+    /*border:solid;*/
+    overflow:scroll;
 }
 
 #chatLog>p{
@@ -22,3 +50,48 @@
 #chatInput{
     
 }
+ .msg{
+     color:green;
+ }
+
+ #online{
+     display:flex;
+     flex-direction:column;
+     width: 100%;
+     height:100%;
+     /*border:solid red;*/
+     
+    
+ }
+
+ #userList{
+     display:flex;
+     flex-direction:column;
+     overflow:scroll;
+     border:solid;
+     width: 90%;
+     height: 80%;
+     padding:2%;
+ }
+
+ #chatButtons{
+     padding:1%;
+     width: 100%;
+ }
+
+ #userBox{
+     display:flex;
+     width: 40%;
+     height: 100%;
+     
+ }
+
+ #userButtons{
+     display:flex;
+     justify-content: center;
+     border:solid;
+ }
+
+ #userButtons>button{
+     margin:1%;
+ }

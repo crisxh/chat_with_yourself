@@ -1,11 +1,15 @@
+/* window.onbeforeunload = function(){
+    return "";
+}; */
+
+
+
+//global variables 
+
+let typing=document.getElementById("isTyping");
 let usrInput=document.getElementById("chatInput");
 let chatLog=[];
-
-
-
-
 let usrInputTxt=usrInput.value;
-
 let userName = document.getElementById("userSelect");
 
 class chatMeta {
@@ -64,6 +68,8 @@ function updateLogMsg(){
     logMsg.user = document.getElementById("userSelect").value;
 
     logMsg.message=usrInput.value;
+
+    typing="";
     
      
 
@@ -95,7 +101,7 @@ function jsonLogger(){
 function msgOutput(){
     output=document.createElement("div");
     output.className="msg";
-    output.innerHTML=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
+    output.innerHTML=`<em>${logMsg.date}</em>   <b>${logMsg.user}</b>: ${logMsg.message}<br>`;
     logBox.append(output);
     //logBox.innerHTML+=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
 
@@ -136,3 +142,43 @@ function getTime(){
 }
 
 console.log("time and date: "+ getTime());
+
+/*typing message */
+
+function isTyping(){
+   
+    usrInput.addEventListener("click",function(){
+    typing.innerHTML=`${userName.value} is typing...`
+
+    })
+}
+
+isTyping();
+
+
+let addUserBtn=document.getElementById("addUser");
+let online=document.getElementById("online");
+let userList=document.getElementById("userList");
+let list=document.getElementById("list");
+addUserBtn.addEventListener("click",addUser);
+
+
+
+function addUser(){
+    
+    let userObj={
+        userName:"",
+        color:"",
+    }
+   
+    userObj.userName=prompt("what is user name?");
+    userObj.color=prompt("what color do you want?")
+    user=document.createElement("li");
+    user.style.color=userObj.color;
+    user.innerHTML=userObj.userName;
+   // list.innerHTML+="<li>"+userObj.userName+"</li>";
+   list.append(user);
+
+    
+}
+

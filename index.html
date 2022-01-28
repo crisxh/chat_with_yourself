@@ -10,25 +10,52 @@
     </head>
     <body>
         <main>
-            <div id="chatBox">
-                <div id="chatLog">
-                 waiting for messages...
+            <div id="chatContainer">
+                <div id="chatBox">
+                    <div id="chatLog">
+                     waiting for messages...
+                     
+                    </div>
+                    <div id="typingBox">
+                        <div id="isTyping"></div>
+                    </div>
+                   
+                        <div id="chatButtons">
+                            <div id="inputContainer">
+                                <select id="userSelect">
+                                    <option id="orange">orange</option>
+                                    <option id="purple">purple</option>
+                                    <option id=green">green</option>
+                                    <option id="yellow">yellow</option>
+                                </select>
+                            <input id="chatInput" type="text">
+                            <button id="send">Send ></button>
+                            <button id="download" onclick="exportJSON()">Download Log</button>
+                        </div>
+                
+                        <div id="userImgIco"></div>
+                
+                    </div>
+                    
                 </div>
-
-                <div id="inputContainer">
-                    <select id="userSelect">
-                        <option id="orange">orange</option>
-                        <option id="purple">purple</option>
-                        <option id=green">green</option>
-                        <option id="yellow">yellow</option>
-                    </select>
-                    <input id="chatInput" type="text">
-                    <button id="send">Send ></button>
-                 
-                    <div id="userImgIco">test</div>
-
-                    <button id="download" onclick="exportJSON()">Download</button>
-
+                <div id="userBox">
+                    <div id="online">
+                    
+                        <div id="userList">
+                            Users:
+                            <ul id="list">
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                            </ul>
+                        </div>
+                        <div id="userButtons">
+                            <button id="addUser">Add User</button>
+                            <button id="exportUsers">Export Users</button>
+                            <button id="importUsers">Import Users</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
