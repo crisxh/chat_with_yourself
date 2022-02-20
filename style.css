@@ -18,8 +18,8 @@ body{
 #chatContainer{
     display:flex;
     flex-direction: row;
-    border:solid;
-    width:60vw;
+    border:solid blue;
+    width:fit-content;
     height: 80vh;
     padding:1%;
 }
@@ -27,14 +27,14 @@ body{
 #chatBox{
     display:flex;
     flex-direction: column;
-    border:solid;
+    border:solid purple;
     height: 90%;
     width: 80%;
     padding:1%;
 }
 
 #chatLog{
-    border:solid;
+    border:solid orange;
     height: 95%;
     width: 95%;
     padding:2%;
@@ -43,16 +43,17 @@ body{
 }
 
 #chatLog>p{
-    border:solid;
+    border:solid green;
    
 }
 
 #chatInput{
     
 }
- .msg{
+
+/* .msg{
      color:green;
- }
+ } */
 
  #online{
      display:flex;
@@ -68,7 +69,7 @@ body{
      display:flex;
      flex-direction:column;
      overflow:scroll;
-     border:solid;
+     border:solid yellow;
      width: 90%;
      height: 80%;
      padding:2%;
@@ -89,7 +90,7 @@ body{
  #userButtons{
      display:flex;
      justify-content: center;
-     border:solid;
+     border:solid green;
  }
 
  #userButtons>button{
