@@ -11,15 +11,19 @@
 
 body{
     display:flex;
+    
     align-items: center;
     justify-content: center;
 }
 
 #chatContainer{
-    display:flex;
-    flex-direction: row;
-    border:solid blue;
-    width:fit-content;
+    display:grid;
+    grid-template-columns: 60% 40%;
+    justify-items: center;
+    /* display:flex;
+    flex-direction: row; */
+    outline:solid blue;
+    /* width:fit-content; */
     height: 80vh;
     padding:1%;
 }
@@ -27,23 +31,23 @@ body{
 #chatBox{
     display:flex;
     flex-direction: column;
-    border:solid purple;
-    height: 90%;
-    width: 80%;
+    outline:solid purple;
+    height: 80%;
+    width: 100%;
     padding:1%;
 }
 
 #chatLog{
-    border:solid orange;
+    outline:solid orange;
     height: 95%;
     width: 95%;
     padding:2%;
-    /*border:solid;*/
+    /*outline:solid;*/
     overflow:scroll;
 }
 
 #chatLog>p{
-    border:solid green;
+    outline:solid green;
    
 }
 
@@ -60,7 +64,7 @@ body{
      flex-direction:column;
      width: 100%;
      height:100%;
-     /*border:solid red;*/
+     /*outline:solid red;*/
      
     
  }
@@ -69,7 +73,7 @@ body{
      display:flex;
      flex-direction:column;
      overflow:scroll;
-     border:solid yellow;
+     outline:solid yellow;
      width: 90%;
      height: 80%;
      padding:2%;
@@ -82,17 +86,38 @@ body{
 
  #userBox{
      display:flex;
-     width: 40%;
-     height: 100%;
+     width: 100%;
+     height: 80%;
+     outline:solid pink;
      
  }
 
  #userButtons{
      display:flex;
      justify-content: center;
-     border:solid green;
+     outline:solid green;
+     
  }
 
  #userButtons>button{
      margin:1%;
+     
+ }
+
+ @media screen and (max-width: 650px){
+
+    #chatContainer{
+        display:grid;
+        grid-template-columns:100%;
+        grid-template-rows: 60% 40%;
+        justify-items: center;
+        /* display:flex;
+        flex-direction: row; */
+        outline:solid blue;
+        /* width:fit-content; */
+        height: 80vh;
+        padding:1%;
+    }
+
+
  }
