@@ -42,10 +42,10 @@ body{
 }
 
 #chatLog{
-    display:flex;
-    flex-wrap:wrap;
+    /* display:flex;
+    flex-wrap:wrap; */
     /* outline:solid orange; */
-    height: 80%;
+    height: 50vh;
     width: 95%;
     padding:2%;
     /*outline:solid;*/
@@ -53,6 +53,9 @@ body{
    
 }
 
+#chatLogBox{
+    /* padding:15px; */
+}
 .msg{
     overflow-wrap:break-word;
 }
@@ -87,6 +90,15 @@ body{
      width: 90%;
      height: 80%;
      padding:2%;
+ }
+ #userListBox{
+     height:fit-content
+ }
+ #userHeading{
+    display:flex;
+    justify-content: center;
+    padding:2px;
+
  }
 
  #chatButtons{
@@ -126,8 +138,14 @@ body{
         /* outline:solid blue; */
         
         /* width:fit-content; */
-        height: 80vh;
+        height: fit-content;
         padding:1%;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    #userBox{
+        margin-top:5px;
     }
 
 
@@ -136,7 +154,8 @@ body{
   @media screen and (min-height: 800px ) and (min-width: 800px){
     #chatContainer{
         width: 80vw;
-        height:70vh;
+        height:fit-content
+        
     }
 
 

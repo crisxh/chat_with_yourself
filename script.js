@@ -61,6 +61,15 @@ sendBtn.addEventListener("click",function(){
 
 });
 
+usrInput.addEventListener("keyup", function(e){
+    e.preventDefault();
+    if (e.key==="Enter"){
+        console.log("keyup");
+        sendBtn.click();
+    }
+
+})
+
 function updateLogMsg(){
     
     logMsg.date=getTime();
