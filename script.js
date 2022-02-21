@@ -1,12 +1,10 @@
+/* window.onbeforeunload = function(){
+    return "";
+}; */
+
+
+
 //global variables 
-
-let userObj={
-    userName:"",
-    color:"",
-}
-
-msgs=document.querySelectorAll(".msg");
-
 
 let typing=document.getElementById("isTyping");
 let usrInput=document.getElementById("chatInput");
@@ -14,18 +12,16 @@ let chatLog=[];
 let usrInputTxt=usrInput.value;
 let userName = document.getElementById("userSelect");
 
-    userSelect=document.getElementById("userSelect");
-   addUserSelect=document.createElement("option");
-  
-
 class chatMeta {
     constructor(date,user,message){
         this.date=new Date();
         this.user=userName.value;
         this.message=usrInput.value;
-        
     } 
 }
+
+
+
 let logMsg={
     date:new Date(),
     user:userName,
@@ -64,22 +60,14 @@ sendBtn.addEventListener("click",function(){
   
 
 });
-usrInput.addEventListener("keyup", function(e){
-    e.preventDefault();
-    if (e.key==="Enter"){
-        console.log("keyup");
-        sendBtn.click();
-    }
-
-})
 
 function updateLogMsg(){
     
     logMsg.date=getTime();
+   // console.log(logMsg.date);
     logMsg.user = document.getElementById("userSelect").value;
 
     logMsg.message=usrInput.value;
-    
 
     typing="";
     
@@ -90,7 +78,14 @@ function updateLogMsg(){
 
 setInterval(updateLogMsg,100);
 
+/* function updateMsgTxt(){
+    logMsg.message=usrInputTxt; 
+    console.log(logMsg.message);
+    console.log(usrInputTxt)
+    
+}
 
+usrInput.addEventListener("click",updateMsgTxt); */
 
 function usrColor(){
     let usrColor=document.getElementById(userName.id);
@@ -107,7 +102,6 @@ function msgOutput(){
     output=document.createElement("div");
     output.className="msg";
     output.innerHTML=`<em>${logMsg.date}</em>   <b>${logMsg.user}</b>: ${logMsg.message}<br>`;
-    output.dataset.color=userObj.color;
     logBox.append(output);
     //logBox.innerHTML+=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
 
@@ -121,7 +115,18 @@ function exportJSON(){
 
 }
 
-
+/* function createCsv(){
+    var csv= 'Date, User, Message\n';
+    chatLog.forEach(function(row){
+        csv+=row.join(',');
+        csv+="\n"
+    });
+    var hiddenElement=document.createElement("a");
+    hiddenElement.href="data:text/csv;charset=utf-8," +encodeURI(csv);
+    hiddenElement.target="_blank";
+    hiddenElement.download="data.csv";
+    hiddenElement.click();
+} */
 
 function getTime(){
     var today=new Date();
@@ -136,6 +141,7 @@ function getTime(){
     return d+"/"+month+"/"+year+"/" +" "+ h+":"+m+":"+s;
 }
 
+console.log("time and date: "+ getTime());
 
 /*typing message */
 
@@ -147,6 +153,7 @@ function isTyping(){
     })
 }
 
+isTyping();
 
 
 let addUserBtn=document.getElementById("addUser");
@@ -159,7 +166,10 @@ addUserBtn.addEventListener("click",addUser);
 
 function addUser(){
     
-  
+    let userObj={
+        userName:"",
+        color:"",
+    }
    
     userObj.userName=prompt("what is user name?");
     userObj.color=prompt("what color do you want?")
@@ -168,13 +178,7 @@ function addUser(){
     user.innerHTML=userObj.userName;
    // list.innerHTML+="<li>"+userObj.userName+"</li>";
    list.append(user);
-   addUserSelect.id=userObj.userName;
-   addUserSelect.innerHTML=userObj.userName;
-
-   
-   userSelect.append(addUserSelect);
 
     
 }
-
 
