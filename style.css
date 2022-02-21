@@ -87,17 +87,20 @@ body{
      flex-direction:column;
      overflow:scroll;
      /* outline:solid yellow; */
+     
+    
+ }
+ #userListBox{
+     height: 80vh;
+     padding:2px;
      width: 90%;
      height: 80%;
      padding:2%;
  }
- #userListBox{
-     height:fit-content
- }
  #userHeading{
     display:flex;
     justify-content: center;
-    padding:2px;
+    padding:1px;
 
  }
 

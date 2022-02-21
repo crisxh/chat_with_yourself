@@ -179,6 +179,7 @@ function addUser(){
         userName:"",
         color:"",
     }
+    let addUserSelect=document.createElement("option");
    
     userObj.userName=prompt("what is user name?");
     userObj.color=prompt("what color do you want?")
@@ -187,6 +188,12 @@ function addUser(){
     user.innerHTML=userObj.userName;
    // list.innerHTML+="<li>"+userObj.userName+"</li>";
    list.append(user);
+
+   addUserSelect.id=userObj.userName;
+   addUserSelect.innerHTML=userObj.userName;
+
+   
+   userSelect.append(addUserSelect);
 
     
 }
