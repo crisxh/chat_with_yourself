@@ -23,11 +23,9 @@ class chatMeta {
         this.date=new Date();
         this.user=userName.value;
         this.message=usrInput.value;
+        
     } 
 }
-
-
-
 let logMsg={
     date:new Date(),
     user:userName,
@@ -66,11 +64,18 @@ sendBtn.addEventListener("click",function(){
   
 
 });
+usrInput.addEventListener("keyup", function(e){
+    e.preventDefault();
+    if (e.key==="Enter"){
+        console.log("keyup");
+        sendBtn.click();
+    }
+
+})
 
 function updateLogMsg(){
     
     logMsg.date=getTime();
-   // console.log(logMsg.date);
     logMsg.user = document.getElementById("userSelect").value;
 
     logMsg.message=usrInput.value;
@@ -171,4 +176,5 @@ function addUser(){
 
     
 }
+
 
