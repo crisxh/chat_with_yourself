@@ -11,8 +11,6 @@ body{
 }
 
 #chatLog{
-    
-   
     color:white;
     text-shadow:0px 0px 2px black;
 }
@@ -27,6 +25,7 @@ body{
 #userListBox{
     background-color:rgba(214, 183, 9, 0.411);
     border-radius:20px;
+    padding:5%;
 }
 
 button{

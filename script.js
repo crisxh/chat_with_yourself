@@ -5,7 +5,7 @@
 
 
 //global variables 
-
+let users={};
 let typing=document.getElementById("isTyping");
 let usrInput=document.getElementById("chatInput");
 let chatLog=[];
@@ -194,6 +194,8 @@ function addUser(){
 
    
    userSelect.append(addUserSelect);
+
+   users[userObj.userName]=userObj;
 
     
 }
