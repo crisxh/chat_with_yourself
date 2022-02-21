@@ -5,7 +5,7 @@
 
 
 //global variables 
-let users={};
+let users=[];
 let typing=document.getElementById("isTyping");
 let usrInput=document.getElementById("chatInput");
 let chatLog=[];
@@ -123,6 +123,19 @@ function exportJSON(){
     window.exportFromJSON({data,download,exportType});
 
 }
+let exportUsers=document.getElementById("exportUsers");
+
+exportUsers.addEventListener("click",exportUsersFun);
+
+function exportUsersFun(){
+    const data=users;
+    const fileName=new Date() + "user list";
+    const exportType="csv";
+    window.exportFromJSON({data,fileName,exportType});
+    
+}
+
+
 
 /* function createCsv(){
     var csv= 'Date, User, Message\n';
@@ -195,7 +208,7 @@ function addUser(){
    
    userSelect.append(addUserSelect);
 
-   users[userObj.userName]=userObj;
+   users.push(userObj);
 
     
 }
