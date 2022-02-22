@@ -6,6 +6,27 @@
 
 //global variables 
 let users=[];
+let lSUsers=JSON.parse(localStorage.getItem("users"));
+let addUserBtn=document.getElementById("addUser");
+let online=document.getElementById("online");
+let userList=document.getElementById("userList");
+let list=document.getElementById("list");
+
+if (lSUsers===null){
+    users=[];
+}else{
+    window.onload=restoreUserData();
+
+}
+
+
+// if (lSUsers=null){
+//     users=[];
+// }else{
+//     users=lSUsers;
+// }
+
+
 let typing=document.getElementById("isTyping");
 let usrInput=document.getElementById("chatInput");
 let chatLog=[];
@@ -119,7 +140,7 @@ function msgOutput(){
 function exportJSON(){
     const data=chatLog;
     const fileName="download";
-    const exportType="csv";
+    const exportType=prompt("file type?");
     window.exportFromJSON({data,download,exportType});
 
 }
@@ -130,11 +151,41 @@ exportUsers.addEventListener("click",exportUsersFun);
 function exportUsersFun(){
     const data=users;
     const fileName=new Date() + "user list";
-    const exportType="csv";
+    const exportType="json";
     window.exportFromJSON({data,fileName,exportType});
     
 }
 
+importUsers=document.getElementById("importUsers");
+importUsers.addEventListener("click",importUsersFunLS);
+
+function importUsersFunLS(){
+
+   
+}
+    
+function restoreUserData(){
+    for(let i=0;i<lSUsers.length;i++){
+        importedUser=document.createElement("li");
+        importedUser.className="importedLS"
+        importedUser.innerHTML=lSUsers[i].userName;
+        importedUser.style.color=lSUsers[i].color;
+         users.push(lSUsers[i]);
+        console.log(users);
+        userList.append(importedUser);
+        // list.append(user);
+    
+        
+        let userOption=document.createElement("option");
+        userOption.innerHTML=lSUsers[i].userName;
+        userSelect.append(userOption);
+
+}
+};
+
+function restoreChatData(){
+    
+}
 
 
 /* function createCsv(){
@@ -178,10 +229,7 @@ function isTyping(){
 isTyping();
 
 
-let addUserBtn=document.getElementById("addUser");
-let online=document.getElementById("online");
-let userList=document.getElementById("userList");
-let list=document.getElementById("list");
+
 addUserBtn.addEventListener("click",addUser);
 
 
@@ -199,16 +247,18 @@ function addUser(){
     user=document.createElement("li");
     user.style.color=userObj.color;
     user.innerHTML=userObj.userName;
-   // list.innerHTML+="<li>"+userObj.userName+"</li>";
-   list.append(user);
+   userList.append(user);
 
    addUserSelect.id=userObj.userName;
    addUserSelect.innerHTML=userObj.userName;
 
    
    userSelect.append(addUserSelect);
-
    users.push(userObj);
+   usersJSON=JSON.stringify(users);
+   localStorage.setItem("users",usersJSON);
+   console.log(localStorage);
+   
 
     
 }
