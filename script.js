@@ -7,6 +7,7 @@
 //global variables 
 let users=[];
 let lSUsers=JSON.parse(localStorage.getItem("users"));
+let lSChatLog=JSON.parse(localStorage.getItem("chatLog"));
 let addUserBtn=document.getElementById("addUser");
 let online=document.getElementById("online");
 let userList=document.getElementById("userList");
@@ -25,6 +26,8 @@ if (lSUsers===null){
 // }else{
 //     users=lSUsers;
 // }
+
+let metaUsers={};
 
 
 let typing=document.getElementById("isTyping");
@@ -129,12 +132,19 @@ function jsonLogger(){
 }
 
 function msgOutput(){
+    let userListColor=document.getElementById("userSelect");
+    console.log(userListColor);
+    console.log(logMsg.user);
     output=document.createElement("div");
     output.className="msg";
+    output.style.color=userListColor;
+    console.log(userListColor);
+    
     output.innerHTML=`<em>${logMsg.date}</em>   <b>${logMsg.user}</b>: ${logMsg.message}<br>`;
     logBox.append(output);
-    //logBox.innerHTML+=logMsg.date+" "+logMsg.user+": "+ logMsg.message+"<br>";
-
+    //adds chatLog to localStorage
+    let chatLogJSON=JSON.stringify(chatLog);
+    localStorage.setItem("chatLog",chatLogJSON);
 }
 
 function exportJSON(){
@@ -161,6 +171,7 @@ importUsers.addEventListener("click",importUsersFunLS);
 
 function importUsersFunLS(){
 
+addUserImport()
    
 }
     
@@ -183,9 +194,15 @@ function restoreUserData(){
 }
 };
 
-function restoreChatData(){
-    
-}
+// function restoreChatData(){
+//     for(let i=0;i<lSChatLog.length;i++){
+
+//     }
+//     let restoredChat=document.createElement("div");
+//     restoredChat.className="restoredMessage";
+//     chatLog.append(restoredChat);
+
+// }
 
 
 /* function createCsv(){
@@ -218,15 +235,15 @@ console.log("time and date: "+ getTime());
 
 /*typing message */
 
-function isTyping(){
+// function isTyping(){
    
-    usrInput.addEventListener("click",function(){
-    typing.innerHTML=`${userName.value} is typing...`
+//     usrInput.addEventListener("click",function(){
+//     typing.innerHTML=`${userName.value} is typing...`
 
-    })
-}
+//     })
+// }
 
-isTyping();
+// isTyping();
 
 
 
@@ -245,12 +262,14 @@ function addUser(){
     userObj.userName=prompt("what is user name?");
     userObj.color=prompt("what color do you want?")
     user=document.createElement("li");
+    user.id=userObj.userName+"Opt";
     user.style.color=userObj.color;
     user.innerHTML=userObj.userName;
    userList.append(user);
 
    addUserSelect.id=userObj.userName;
    addUserSelect.innerHTML=userObj.userName;
+   addUserSelect.dataset.color=userObj.color;
 
    
    userSelect.append(addUserSelect);
@@ -259,7 +278,49 @@ function addUser(){
    localStorage.setItem("users",usersJSON);
    console.log(localStorage);
    
-
+    logMsg.color=userObj.color;
     
 }
 
+function addUserImport(userName,Color){
+    let userObj={
+        userName:"",
+        color:"",
+    }
+    userObj.userName=userName;
+    userObj.color=Color;
+    let addUserSelect=document.createElement("option");
+    user=document.createElement("li");
+    user.id=userObj.userName+"Opt";
+    user.style.color=userObj.color;
+    user.innerHTML=userObj.userName;
+   userList.append(user);
+
+   addUserSelect.id=userObj.userName;
+   addUserSelect.innerHTML=userObj.userName;
+   addUserSelect.dataset.color=userObj.color;
+
+   
+   userSelect.append(addUserSelect);
+   users.push(userObj);
+   usersJSON=JSON.stringify(users);
+   localStorage.setItem("users",usersJSON);
+   console.log(localStorage);
+   
+    logMsg.color=userObj.color;
+
+}
+
+
+
+function clearLocal(){
+    var retVal=confirm("Are you sure you want to clear the local storage? all unsaved data will be lost ")
+    if(retVal){
+        localStorage.clear();
+        window.location.reload();
+
+    }
+    else{
+        return;
+    }
+}

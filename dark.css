@@ -1,12 +1,12 @@
 body{
-    background-image:url("background-gc56d1604d_1280.png");
+    background-image:url("pexels-daria-shevtsova-2029159.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 #chatContainer{
-    background-color:rgba(131, 86, 3, 0.616);
+    background-color:rgba(10, 10, 10, 0.746);
     border:none !important;
 }
 
@@ -17,23 +17,25 @@ body{
 
 #chatLogBox{
     padding:5%;
-    background-color:rgba(0, 128, 0, 0.527);
+    background-color:rgba(56, 65, 56, 0.527);
     border-radius:20px; 
 
 }
 
 #userListBox{
-    background-color:rgba(214, 183, 9, 0.411);
+    background-color:rgba(56, 65, 56, 0.527);;
     border-radius:20px;
     padding:5%;
+    color:white;
 }
 
 button{
     border:none;
-    background-color: green;
+    background-color: rgb(119, 104, 104);
     color:white;
-    padding:2px;
+    padding:3px;
+    border-radius:10%;
+    margin:5px;
 }
-button:focus{
-    border:inset 1px;
-}
+
+
