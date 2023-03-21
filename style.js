@@ -18,7 +18,7 @@ function themePicker(){
     theme.href=`${themeOpt}.css`
     theme.id="style";
     headA.append(theme);
-    console.log("themeee")
+    console.log('theme is '+themeOpt)
 
     
 }
