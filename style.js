@@ -11,11 +11,11 @@ themes=document.querySelectorAll(".theme");
 themePickerSel=""
 
 function themePicker(){
-    let themeOpt=document.getElementById("themePicker").value;
+    let themeOpt=document.getElementById("themePicker").value.toLowerCase;
     let headA=document.getElementsByTagName("head")[0];
     theme=document.createElement("link");
     theme.rel="stylesheet";
-    theme.href=`${themeOpt.toLowerCase}.css`
+    theme.href=`${themeOpt}.css`
     theme.id="style";
     headA.append(theme);
     console.log("themeee")
