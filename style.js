@@ -11,7 +11,7 @@ themes=document.querySelectorAll(".theme");
 themePickerSel=""
 
 function themePicker(){
-    let themeOpt=document.getElementById("themePicker").value.toLowerCase;
+    let themeOpt=document.getElementById("themePicker").value;
     let headA=document.getElementsByTagName("head")[0];
     theme=document.createElement("link");
     theme.rel="stylesheet";
