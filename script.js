@@ -1,8 +1,22 @@
+
+
+const Projects =[
+    {
+        name:'checkers',
+        url:''
+    },
+    {
+        name:'chat with yourself',
+        url:''
+    }
+];
+
+
 /* window.onbeforeunload = function(){
     return "";
 }; */
 
-
+console.log(Projects);
 
 //global variables 
 let users=[];
